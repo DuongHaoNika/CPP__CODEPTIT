@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define mp make_pair
+#define fi first
+#define se second
+#define pb push_back
+#define sz size()
+#define ll long long
+#define FOR(i, a, b) for (int i = a; i <= b; ++i)
+#define FORD(i, a, b) for (int i = a; i >= b; --i)
+#define F(i, a, b) for (int i = a; i < b; ++i)
+#define FD(i, a, b) for (int i = a; i > b; --i)
+#define faster() ios_base::sync_with_stdio(0); cin.tie(NULL); cout.tie(NULL);
+#define vi vector<int>
+#define vll vector<ll>
+#define vb vector<bool>
+#define endl '\n'
+
+int main()
+{
+	faster();
+	int t; cin >> t;
+	while(t--)
+	{
+		int n, x; cin >> n >> x;
+		int a[n + 5];
+		map<int, int> m;
+		FOR(i, 0, n - 1) 
+		{
+			cin >> a[i];
+			m[a[i]]++;
+		}
+		bool check = false;
+		FOR(i, 0, n - 1)
+		{
+			int k = a[i] + x;
+			if(m[k]) 
+			{
+				check = true;
+				break;
+			}
+			k = a[i] - x;
+			if(m[k]) 
+			{
+				check = true;
+				break;
+			}
+		}
+		if(check) cout << 1;
+		else cout << -1;
+		cout << endl;
+	}	
+}
